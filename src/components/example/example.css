@@ -1,0 +1,13 @@
+$color: #aaa;
+
+.example {
+  padding: 10px;
+  margin: 20px;
+  font: 16px "Helvetica Neue", sans-serif;
+
+  button {
+    background: $color;
+    padding: 10px 20px;
+    border: 0;
+  }
+}

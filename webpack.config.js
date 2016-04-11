@@ -1,6 +1,8 @@
 var fs = require('fs');
 
 var webpack = require('webpack');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 var ejs = require('ejs');
@@ -19,7 +21,7 @@ var config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&sourceMap!postcss')
       },
       {
         test: /\.js$/,
@@ -29,12 +31,19 @@ var config = {
     ]
   },
 
+  postcss: function() {
+    return [
+      autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'IE 9']} ),
+      precss
+    ];
+  },
+
   plugins: [
     new ExtractTextPlugin('style.css', { allChunks: true }),
-    new StaticSiteGeneratorPlugin('main', ['/'], {
-      template: template
-    })
-  ]
+    new StaticSiteGeneratorPlugin('main', ['/'], { template: template })
+  ],
+
+  devtool: 'cheap-module-source-map'
 };
 
 module.exports = config;
