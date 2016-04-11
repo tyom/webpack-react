@@ -7,9 +7,7 @@ var ejs = require('ejs');
 var template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'utf-8'));
 
 var config = {
-  entry: {
-    main: './src/index.js'
-  },
+  entry: './src/index.js',
 
   output: {
     filename: 'index.js',
@@ -21,7 +19,7 @@ var config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+        loader: ExtractTextPlugin.extract('style', 'css')
       },
       {
         test: /\.js$/,
