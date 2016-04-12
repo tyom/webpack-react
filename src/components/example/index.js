@@ -10,7 +10,7 @@ module.exports = React.createClass({
   render() {
     return (
       <div className={styles.example}>
-        <h1>{this.props.children}</h1>
+        <h2>Example component</h2>
         <p>
           <button onClick={this.handleClick}>Click me</button>
         </p>

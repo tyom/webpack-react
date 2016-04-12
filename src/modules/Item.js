@@ -1,11 +1,11 @@
 const React = require('react');
 
-const Example = require('./example');
-
 module.exports = React.createClass({
   render() {
     return (
-      <Example>Heading</Example>
+      <div>
+        <h1>Item</h1>
+      </div>
     );
   }
 });

@@ -8,11 +8,16 @@ var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 var ejs = require('ejs');
 var template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'utf-8'));
 
+var routes = [
+  '/',
+  '/item'
+];
+
 var config = {
   entry: './src/index.js',
 
   output: {
-    filename: 'index.js',
+    filename: 'bundle.js',
     path: 'dist',
     libraryTarget: 'umd'
   },
@@ -39,8 +44,8 @@ var config = {
   },
 
   plugins: [
-    new ExtractTextPlugin('style.css', { allChunks: true }),
-    new StaticSiteGeneratorPlugin('main', ['/'], { template: template })
+    new ExtractTextPlugin('bundle.css', { allChunks: true }),
+    new StaticSiteGeneratorPlugin('main', routes, { template: template })
   ],
 
   devtool: 'cheap-module-source-map'
