@@ -6,10 +6,12 @@ const styles = require('./nav.css');
 module.exports = React.createClass({
   render() {
     return (
-      <ul className={styles.nav}>
-        <li><Link to="/">Index</Link></li>
-        <li><Link to="/item">Item</Link></li>
-      </ul>
+      <nav className={styles.Nav}>
+        <ul className={styles.NavList}>
+          <li><Link to="/">Index</Link></li>
+          <li><Link to="/item">Item</Link></li>
+        </ul>
+      </nav>
     );
   }
 });

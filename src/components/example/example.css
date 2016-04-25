@@ -1,14 +1,38 @@
 .example {
-  $color: #ddd;
+  $color: #444;
 
   padding: 10px;
   font: 16px "Helvetica Neue", sans-serif;
   border: 1px solid $color;
+  box-shadow: 0 1px 4px rgba(0,0,0, .3);
+  background: linear-gradient(#efefef, #e6e6e6);
+
+  h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    font-weight: 400;
+    color: $color;
+  }
+
+  p {
+    margin: 10px 0 0;
+  }
 
   button {
     background: $color;
+    color: #fff;
     padding: 10px 20px;
     border: 0;
     font-size: 1.4rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #333;
+    }
+
+    &:active {
+      background-color: #222;
+    }
   }
 }

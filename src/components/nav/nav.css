@@ -1,5 +1,8 @@
-.nav {
+.Nav {
   border-bottom: 2px solid #ccc;
+}
+
+.NavList {
   margin: 0;
   padding: 0;
 

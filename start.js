@@ -2,8 +2,8 @@
 // https://github.com/webpack/extract-text-webpack-plugin/issues/30
 // https://github.com/webpack/webpack/issues/1530
 
-var bs = require('browser-sync').create();
-var webpack = require('webpack');
+const bs = require('browser-sync').create();
+const webpack = require('webpack');
 
 webpack(require('./webpack.config'))
   .watch({}, function(err, stats) {
@@ -12,13 +12,13 @@ webpack(require('./webpack.config'))
     } else {
       console.log('webpack build', stats.endTime);
 
-      var changedModules = stats.compilation.modules.filter(function(module) {
+      const changedModules = stats.compilation.modules.filter((module) => {
         return module.built && module.resource;
       });
-      var changedStyleModules = changedModules.filter(function(module) {
+      const changedStyleModules = changedModules.filter((module) => {
         return module.resource.match(/\.(css|less|sass)$/);
       });
-      var hasOnlyStyleChanges = changedModules.length === changedStyleModules.length;
+      const hasOnlyStyleChanges = (changedModules.length === changedStyleModules.length);
       if (hasOnlyStyleChanges) {
         bs.reload('*.css');
       } else {
