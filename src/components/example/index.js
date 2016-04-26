@@ -2,36 +2,36 @@ const React = require('react');
 
 const styles = require('./example.css');
 
-const Exhibit = require('../../styleguide/exhibit');
+const classnames = require('classnames');
 
 module.exports = React.createClass({
-  getDefaultProps() {
+  getInitialState() {
     return {
-      title: 'Example',
-      code:
-`
-<div className={styles.example}>
-  <h2>Example component</h2>
-  <p><button onClick={this.handleClick}>Click me</button></p>
-</div>
-`
+      isActive: false
     }
   },
 
   handleClick(evt) {
     console.log(evt);
+    this.setState({
+      isActive: !this.state.isActive
+    });
   },
 
   render() {
-    const {code, title} = this.props;
+    const buttonClass = classnames({
+      [styles['is-active']]: this.state.isActive
+    });
 
     return (
-    <Exhibit code={code} title={title}>
       <div className={styles.example}>
         <h3>Example component</h3>
-        <p><button onClick={this.handleClick}>Click me</button></p>
+        <p>
+          <button onClick={this.handleClick} className={buttonClass}>
+            Click me
+          </button>
+        </p>
       </div>
-    </Exhibit>
     );
   }
 });

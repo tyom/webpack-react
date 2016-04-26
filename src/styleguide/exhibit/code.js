@@ -4,7 +4,15 @@ const beautify = require('js-beautify').html;
 const styles = require('./exhibit.css');
 
 module.exports = React.createClass({
+  getDefaultProps() {
+    return {
+      beautify: true
+    }
+  },
+
   render() {
+    if (!this.props.children) {return null;}
+    
     return (
       <pre className={styles.code}>
         {this.props.beautify

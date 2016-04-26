@@ -19,7 +19,7 @@
   }
 
   button {
-    background: $color;
+    background-color: $color;
     color: #fff;
     padding: 10px 20px;
     border: 0;
@@ -33,6 +33,10 @@
 
     &:active {
       background-color: #222;
+    }
+
+    &.is-active {
+      background-color: #f22746;
     }
   }
 }
