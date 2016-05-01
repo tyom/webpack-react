@@ -1,0 +1,83 @@
+.GlobalNav {
+  background: #202e39;
+  color: #fff;
+  width: 240px;
+  -webkit-font-smoothing: antialiased;
+  transition: 200ms;
+  position: relative;
+
+  &.is-hidden {
+    margin-left: -220px;
+  }
+}
+
+.GlobalNav-toggle {
+  border: 1px solid #202e39;
+  box-shadow: inset 0 0 0 1px #fff;
+  border-radius: 0 0 2px 2px;
+  background: #202e39;
+  position: absolute;
+  right: -10px;
+  top: -2px;
+  width: 20px;
+  height: 24px;
+  text-indent: -999em;
+  cursor: pointer;
+  outline: 0;
+}
+
+.GlobalNav-filter {
+  padding: 15px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+  label {
+    display: block;
+    padding-bottom: 10px;
+    color: rgba(255, 255, 255, .4);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  input {
+    padding: 5px;
+    border: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, .8);
+    outline: 0;
+    transition: 150ms;
+    font-size: 14px;
+    color: #777;
+
+    &:focus {
+      color: #333;
+      background: #fff;
+      box-shadow: 0 0 0 1px #fff;
+    }
+  }
+}
+
+.GlobalNav-list {
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.GlobalNav-link {
+  display: block;
+  padding: 6px 20px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, .7);
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, .1);
+    color: #fff;
+  }
+
+  &:active {
+    background-color: rgba(255, 255, 255, .2);
+  }
+}
