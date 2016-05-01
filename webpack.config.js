@@ -26,7 +26,7 @@ var config = {
     loaders: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&sourceMap!postcss')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]-[local]&sourceMap!postcss')
       },
       {
         test: /\.js$/,
