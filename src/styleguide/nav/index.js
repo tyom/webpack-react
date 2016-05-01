@@ -4,10 +4,10 @@ const classnames = require('classnames');
 
 const styles = require('./nav.css');
 
-const Filter = () =>
+const Filter = (props) =>
   <div className={styles['GlobalNav-filter']}>
     <label htmlFor="item-filter">Filter</label>
-    <input type="text" id="item-filter"/>
+    <input type="text" id="item-filter" onChange={props.onChange}/>
   </div>
 ;
 
@@ -25,8 +25,12 @@ const GlobalNavList = ({items}) =>
 export class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {isHidden: false};
+    this.state = {
+      isHidden: false,
+      items: this.props.items
+    };
     this.toggleVisibility = this.toggleVisibility.bind(this);
+    this.onFilterChange = this.onFilterChange.bind(this);
   }
 
   toggleVisibility() {
@@ -35,12 +39,24 @@ export class Nav extends React.Component {
     });
   }
 
+  onFilterChange(evt) {
+    this.setState({
+      items: this.props.items.filter(item =>
+        item.label.match(new RegExp(`.*${evt.target.value}.*`, 'ig'))
+      )
+    });
+  }
+
   render() {
     return(
-      <nav className={classnames(styles.GlobalNav, {[styles['is-hidden']]: this.state.isHidden})}>
+      <nav className={
+        classnames(styles.GlobalNav, {
+          [styles['is-hidden']]: this.state.isHidden
+        })
+      }>
         <button className={styles['GlobalNav-toggle']} onClick={this.toggleVisibility}>Toggle</button>
-        <Filter/>
-        <GlobalNavList items={this.props.items}/>
+        <Filter onChange={this.onFilterChange}/>
+        <GlobalNavList items={this.state.items}/>
       </nav>
     );
   }
