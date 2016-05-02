@@ -5,30 +5,46 @@
 const bs = require('browser-sync').create();
 const webpack = require('webpack');
 
-webpack(require('./webpack.config'))
-  .watch({}, function(err, stats) {
-    if (err) {
-      console.error('webpack build error');
-    } else {
-      console.log('webpack build', stats.endTime);
+const compiler = webpack(require('./webpack.config'));
 
-      const changedModules = stats.compilation.modules.filter((module) => {
-        return module.built && module.resource;
-      });
-      const changedStyleModules = changedModules.filter((module) => {
-        return module.resource.match(/\.(css|less|sass)$/);
-      });
-      const hasOnlyStyleChanges = (changedModules.length === changedStyleModules.length);
-      if (hasOnlyStyleChanges) {
-        bs.reload('*.css');
-      } else {
-        bs.reload();}
-    }
-  });
+compiler.run((err, stats) => {
+    if (err) {console.error(err);}
 
-bs.init({
-  server: {
-    baseDir: './dist'
-  },
-  open: false
+    console.log(stats.toString({
+        colors: true,
+        chunks: false
+    }));
+
+    if (!stats.hasErrors()) {watch();}
 });
+
+function watch() {
+    compiler.watch({}, (err, stats) => {
+        if (err) {
+            console.error('webpack build error');
+        } else {
+            console.log('webpack build', stats.endTime);
+            const changedModules = stats.compilation.modules.filter((module) => {
+                return module.built && module.resource;
+            });
+
+            const changedStyleModules = changedModules.filter((module) => {
+                return module.resource.match(/\.(css|less|sass)$/);
+            });
+            const hasOnlyStyleChanges = (changedModules.length === changedStyleModules.length);
+
+            if (hasOnlyStyleChanges) {
+                bs.reload('*.css');
+            } else {
+                bs.reload();
+            }
+        }
+    });
+
+    bs.init({
+        server: {
+            baseDir: './dist'
+        },
+        open: false
+    });
+}

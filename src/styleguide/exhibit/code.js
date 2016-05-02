@@ -3,23 +3,21 @@ const beautify = require('js-beautify').html;
 
 const styles = require('./exhibit.css');
 
-module.exports = React.createClass({
-  getDefaultProps() {
-    return {
-      beautify: true
-    }
-  },
+const Code = (props) => {
+  if (!props.children) {return null;}
+  
+  return (
+    <pre className={styles.code}>
+      {props.beautify
+        ? beautify(props.children, {indent_size: 2})
+        : props.children
+      }
+    </pre>
+  );
+};
 
-  render() {
-    if (!this.props.children) {return null;}
-    
-    return (
-      <pre className={styles.code}>
-        {this.props.beautify
-          ? beautify(this.props.children, {indent_size: 2})
-          : this.props.children
-        }
-      </pre>
-    );
-  }
-});
+Code.defaultProps = {
+  beautify: true
+};
+
+module.exports = Code;

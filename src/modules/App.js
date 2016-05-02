@@ -2,21 +2,16 @@ const styles = require('./app.css');
 
 const React = require('react');
 
-const GlobalNav = require('../styleguide/nav');
+const Nav = require('../styleguide/nav');
 
 const navItems = [
   { label: 'Example', path: '/'},
-  { label: 'Tabs', path: 'item'},
-  { label: 'Forms', path: 'forms'}
+  { label: 'Tabs', path: 'tabs'}
 ];
 
-module.exports = React.createClass({
-  render() {
-    return (
-      <div className={styles.App}>
-        <GlobalNav items={navItems}/>
-        {this.props.children}
-      </div>
-    );
-  }
-});
+module.exports = (props) =>
+  <div className={styles.App}>
+    <Nav items={navItems}/>
+    {props.children}
+  </div>
+;

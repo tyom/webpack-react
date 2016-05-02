@@ -10,7 +10,7 @@ var template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'ut
 
 var routes = [
   '/',
-  '/item'
+  '/tabs'
 ];
 
 var config = {

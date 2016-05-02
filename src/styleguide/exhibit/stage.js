@@ -2,10 +2,6 @@ const React = require('react');
 
 const styles = require('./exhibit.css');
 
-module.exports = React.createClass({
-  render() {
-    return (
-      <div className={styles.stage}>{this.props.children}</div>
-    );
-  }
-});
+module.exports = (props) =>
+  <div className={styles.stage}>{props.children}</div>
+;
