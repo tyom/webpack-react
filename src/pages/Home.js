@@ -7,7 +7,7 @@ const styles = require('../modules/app.css');
 
 module.exports = (props) =>
   <div className={styles.Content}>
-    <h1>Home view</h1>
+    <h1>Home</h1>
     <Exhibit title="Example exhibit">
       <Example/>
       {`

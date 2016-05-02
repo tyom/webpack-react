@@ -10,6 +10,7 @@ body {
   @extend base-font;
   padding: 0;
   margin: 0;
+  //background: red;
 }
 
 .App {

@@ -7,7 +7,7 @@ const Nav = require('../components/nav');
 
 module.exports = () =>
   <div className={styles.Content}>
-    <h1>Item view</h1>
+    <h1>Tabs!</h1>
     <Exhibit title="Navigation exhibit">
       <Nav/>
       {`

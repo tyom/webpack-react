@@ -8,8 +8,6 @@
     <div id="container">
       <%- html %>
     </div>
-  <% for (var chunk in assets) { %>
-    <script src="/<%= assets[chunk] %>"></script>
-  <% } %>
+    <script src="/client.bundle.js"></script>
   </body>
 </html>

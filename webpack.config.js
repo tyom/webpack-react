@@ -14,11 +14,15 @@ var routes = [
 ];
 
 var config = {
-  entry: './src/index.js',
+  entry: {
+    client: ['webpack-dev-server/client?http://localhost:8080', './src/client.js'],
+    server: './src/server.js'
+  },
 
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: 'dist',
+    publicPath: 'http://localhost:8080/',
     libraryTarget: 'umd'
   },
 
@@ -38,17 +42,22 @@ var config = {
 
   postcss: function() {
     return [
-      autoprefixer({ browsers: ['> 1%', 'last 2 versions', 'IE 9']} ),
+      autoprefixer({browsers: ['> 1%', 'last 2 versions', 'IE 9']}),
       precss
     ];
   },
 
   plugins: [
-    new ExtractTextPlugin('bundle.css', { allChunks: true }),
-    new StaticSiteGeneratorPlugin('main', routes, { template: template })
+    new ExtractTextPlugin('bundle.css', {allChunks: true}),
+    new StaticSiteGeneratorPlugin('server', routes, {template: template})
   ],
 
-  devtool: 'cheap-module-source-map'
+  devtool: 'cheap-module-source-map',
+
+  devServer: {
+    contentBase: './dist',
+    stats: { colors: true, chunks: false }
+  }
 };
 
 module.exports = config;
