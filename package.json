@@ -25,13 +25,13 @@
     "precss": "^1.4.0",
     "static-site-generator-webpack-plugin": "^2.0.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.15"
+    "webpack": "^1.13.1"
   },
   "dependencies": {
     "classnames": "^2.2.4",
-    "js-beautify": "^1.6.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-icons": "^2.1.0",
     "react-router": "^2.1.1"
   }
 }

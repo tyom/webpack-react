@@ -1,8 +1,10 @@
 const React = require('react');
+const { Link } = require('react-router');
+const Icons = require('react-icons/lib/ti');
 
 const styles = require('./example.css');
 
-const classnames = require('classnames');
+const classNames = require('classnames');
 
 module.exports = React.createClass({
   getInitialState() {
@@ -19,7 +21,7 @@ module.exports = React.createClass({
   },
 
   render() {
-    const buttonClass = classnames({
+    const buttonClass = classNames({
       [styles['is-active']]: this.state.isActive
     });
 
@@ -28,8 +30,11 @@ module.exports = React.createClass({
         <h3>Example component</h3>
         <p>
           <button onClick={this.handleClick} className={buttonClass}>
-            Click me
+            <Icons.TiCompass/> Click me
           </button>
+        </p>
+        <p>
+          <Link to='/another-page'>Another page</Link>
         </p>
       </div>
     );

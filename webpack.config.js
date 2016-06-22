@@ -8,9 +8,9 @@ var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
 var ejs = require('ejs');
 var template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'utf-8'));
 
-var routes = [
+var ROUTES = [
   '/',
-  '/tabs'
+  'another-page'
 ];
 
 var config = {
@@ -49,7 +49,7 @@ var config = {
 
   plugins: [
     new ExtractTextPlugin('bundle.css', {allChunks: true}),
-    new StaticSiteGeneratorPlugin('server', routes, {template: template})
+    new StaticSiteGeneratorPlugin('server', ROUTES, {template: template})
   ],
 
   devtool: 'cheap-module-source-map',
