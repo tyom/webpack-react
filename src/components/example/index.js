@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import * as styles from './example.css';
 
-const Icons = require('react-icons/lib/ti');
+import {TiCompass} from 'react-icons/lib/ti';
 
 const Example = React.createClass({
   getInitialState() {
@@ -30,7 +30,7 @@ const Example = React.createClass({
         <h3>Example component</h3>
         <p>
           <button onClick={this.handleClick} className={buttonClass}>
-            <Icons.TiCompass/> Click me
+            <TiCompass/> Click me
           </button>
         </p>
         <p>
