@@ -1,4 +1,4 @@
-@import '../../common/typography';
+@import '../../css/typography';
 
 * {
   &, &::before, &::after {
