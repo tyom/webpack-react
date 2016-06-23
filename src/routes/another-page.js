@@ -1,7 +1,7 @@
-const React = require('react');
-const { Link } = require('react-router');
+import React from 'react';
+import { Link } from 'react-router';
 
-const styles = require('./app/app.css');
+import * as styles from './app/app.css';
 
 module.exports = (props) =>
   <div className={styles.Content}>

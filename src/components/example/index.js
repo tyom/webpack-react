@@ -1,12 +1,12 @@
-const React = require('react');
-const { Link } = require('react-router');
+import React from 'react';
+import { Link } from 'react-router';
+import classNames from 'classnames';
+
+import * as styles from './example.css';
+
 const Icons = require('react-icons/lib/ti');
 
-const styles = require('./example.css');
-
-const classNames = require('classnames');
-
-module.exports = React.createClass({
+const Example = React.createClass({
   getInitialState() {
     return {
       isActive: false
@@ -40,3 +40,6 @@ module.exports = React.createClass({
     );
   }
 });
+
+exports.default = Example;
+module.exports = exports.default;

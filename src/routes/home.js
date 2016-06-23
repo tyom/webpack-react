@@ -1,8 +1,7 @@
-const React = require('react');
+import React from 'react';
+import Example from '../components/example';
 
-const Example = require('../components/example');
-
-const styles = require('./app/app.css');
+import * as styles from './app/app.css';
 
 module.exports = (props) =>
   <div className={styles.Content}>

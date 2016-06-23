@@ -1,5 +1,5 @@
-const React = require('react');
-const { Route, IndexRoute } = require('react-router');
+import React from 'react';
+import { Route, IndexRoute } from 'react-router';
 
 module.exports = (
   <Route path="/" component={require('./app')}>
