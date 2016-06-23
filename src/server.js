@@ -1,6 +1,6 @@
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const {RouterContext, match, createMemoryHistory} = require('react-router');
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import {RouterContext, match, createMemoryHistory} from 'react-router';
 
 const routes = require('./routes');
 

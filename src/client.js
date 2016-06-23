@@ -1,6 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
-const {Router, browserHistory} = require('react-router');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Router, browserHistory} from 'react-router';
 
 const routes = require('./routes');
 
