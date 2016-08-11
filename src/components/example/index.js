@@ -34,7 +34,7 @@ const Example = React.createClass({
           </button>
         </p>
         <p>
-          <Link to='/another-page'>Another page</Link>
+          <Link to='another-page'>Another page</Link>
         </p>
       </div>
     );
