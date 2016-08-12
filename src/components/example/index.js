@@ -42,4 +42,3 @@ const Example = React.createClass({
 });
 
 export default Example;
-module.exports = exports.default;

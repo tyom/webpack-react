@@ -1,19 +1,23 @@
-var fs = require('fs');
+const fs = require('fs');
 
-var webpack = require('webpack');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
-var ejs = require('ejs');
-var template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'utf-8'));
+const webpack = require('webpack');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const StaticSiteGeneratorPlugin = require('static-site-generator-webpack-plugin');
+const ejs = require('ejs');
+const template = ejs.compile(fs.readFileSync(__dirname + '/src/template.html', 'utf-8'));
 
-var ROUTES = [
+const ROUTES = [
   '/',
   'another-page'
 ];
 
-var config = {
+console.log(
+  require('babel!./src/routes/index')
+);
+
+const config = {
   entry: {
     client: ['webpack-dev-server/client?http://localhost:8080', './src/client.js'],
     server: './src/server.js'
@@ -57,7 +61,7 @@ var config = {
 
   devServer: {
     contentBase: './dist',
-    stats: { colors: true, chunks: false }
+    stats: {colors: true, chunks: false}
   }
 };
 
